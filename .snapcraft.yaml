@@ -1,4 +1,4 @@
-name: travis-worker
+name: d-worker
 base: core18
 version: git
 grade: stable
@@ -24,8 +24,8 @@ parts:
     build-snaps:
       - go/1.12/stable
     go-packages:
-      - github.com/travis-ci/worker/cmd/travis-worker
-    go-importpath: github.com/travis-ci/worker
+      - github.com/DamianSzymanski/worker/cmd/travis-worker
+    go-importpath: github.com/DamianSzymanski/worker
     prime:
       - bin/travis-worker
     override-build: |-
@@ -34,16 +34,16 @@ parts:
       cd ${SNAPCRAFT_PROJECT_DIR}
       VERSION="$(git describe --always --dirty --tags 2>/dev/null)"
       REVISION="$(git rev-parse HEAD)"
-      REVISION_URL="https://github.com/travis-ci/worker/tree/${REVISION}"
+      REVISION_URL="https://github.com/DamianSzymanski/worker/tree/${REVISION}"
       GENERATED="$(date -u +'%Y-%m-%dT%H:%M:%S%z')"
       COPYRIGHT="$(grep -i ^copyright LICENSE | sed 's/^[Cc]opyright //')"
       cd -
 
-      sed -i "s#VersionString =.*#VersionString = \"${VERSION}\"#g" ../go/src/github.com/travis-ci/worker/version.go
-      sed -i "s#RevisionString =.*#RevisionString = \"${REVISION}\"#g" ../go/src/github.com/travis-ci/worker/version.go
-      sed -i "s#RevisionURLString =.*#RevisionURLString = \"${REVISION_URL}\"#g" ../go/src/github.com/travis-ci/worker/version.go
-      sed -i "s#GeneratedString =.*#GeneratedString = \"${GENERATED}\"#g" ../go/src/github.com/travis-ci/worker/version.go
-      sed -i "s#CopyrightString =.*#CopyrightString = \"${COPYRIGHT}\"#g" ../go/src/github.com/travis-ci/worker/version.go
+      sed -i "s#VersionString =.*#VersionString = \"${VERSION}\"#g" ../go/src/github.com/DamianSzymanski/worker/version.go
+      sed -i "s#RevisionString =.*#RevisionString = \"${REVISION}\"#g" ../go/src/github.com/DamianSzymanski/worker/version.go
+      sed -i "s#RevisionURLString =.*#RevisionURLString = \"${REVISION_URL}\"#g" ../go/src/github.com/DamianSzymanski/worker/version.go
+      sed -i "s#GeneratedString =.*#GeneratedString = \"${GENERATED}\"#g" ../go/src/github.com/DamianSzymanski/worker/version.go
+      sed -i "s#CopyrightString =.*#CopyrightString = \"${COPYRIGHT}\"#g" ../go/src/github.com/DamianSzymanski/worker/version.go
 
       set +ex
       snapcraftctl build
