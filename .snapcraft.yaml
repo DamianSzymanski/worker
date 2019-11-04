@@ -1,5 +1,5 @@
 name: d-worker
-base: core18
+base: core16
 version: git
 grade: stable
 summary: Travis CI worker
