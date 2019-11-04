@@ -1,5 +1,5 @@
 name: d-worker
-#base: core16
+base: core18
 version: git
 grade: stable
 summary: Travis CI worker
@@ -21,8 +21,6 @@ parts:
     build-packages:
       - gcc
     plugin: go
-    build-snaps:
-      - go/1.12/stable
     go-packages:
       - github.com/DamianSzymanski/worker/cmd/travis-worker
     go-importpath: github.com/DamianSzymanski/worker
