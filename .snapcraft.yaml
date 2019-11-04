@@ -23,7 +23,8 @@ parts:
     plugin: go
     go-packages:
       - github.com/DamianSzymanski/worker/cmd/travis-worker
-    go-importpath: github.com/DamianSzymanski/worker
+    go-importpath: 
+      - github.com/DamianSzymanski/worker
     prime:
       - bin/travis-worker
     override-build: |-
