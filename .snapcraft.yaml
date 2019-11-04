@@ -1,5 +1,5 @@
 name: d-worker
-base: core16
+#base: core16
 version: git
 grade: stable
 summary: Travis CI worker
@@ -25,7 +25,7 @@ parts:
       - go/1.12/stable
     go-packages:
       - github.com/DamianSzymanski/worker/cmd/travis-worker
-    #go-importpath: github.com/DamianSzymanski/worker
+    go-importpath: github.com/DamianSzymanski/worker
     prime:
       - bin/travis-worker
     override-build: |-
